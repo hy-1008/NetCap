@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NetCapHomeController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane BorderPane.alignment="CENTER">
+               <children>
+                  <ComboBox fx:id="chooseNet" layoutX="193.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#chooseNetInter" prefHeight="25.0" prefWidth="191.0" promptText="选择网卡" />
+                  <ComboBox fx:id="chooseProtocol" layoutX="596.0" onAction="#chooseProtocolActon" prefHeight="25.0" prefWidth="87.0" promptText="协议" />
+                  <TextField fx:id="filterInput" layoutX="401.0" prefHeight="25.0" prefWidth="177.0" promptText="IP过滤器" />
+                  <Button fx:id="filterBt" layoutX="556.0" mnemonicParsing="false" onAction="#filterAction" prefHeight="25.0" text="F" />
+                  <Label fx:id="title" alignment="CENTER" layoutX="10.0" layoutY="2.0" prefHeight="23.0" prefWidth="173.0" style="-fx-background-color: linear-gradient(to right, #48c6ef 0%, #6f86d6 100%); -fx-background-radius: 4px;" text="My Network Packet Capturer" />
+                  <Button fx:id="run" layoutX="701.0" layoutY="2.0" mnemonicParsing="false" onAction="#runAction" stylesheets="@../CSS/NetCap.css" text="  " />
+                  <ComboBox fx:id="chooseModel" layoutX="860.0" onAction="#chooseModelAction" prefHeight="25.0" prefWidth="121.0" promptText="选择模式" />
+                  <Button fx:id="clear" layoutX="726.0" layoutY="1.0" mnemonicParsing="false" onAction="#clearAction" text="C" />
+                  <TextField fx:id="capNumInput" alignment="CENTER" layoutX="726.0" prefHeight="25.0" prefWidth="72.0" promptText="输入抓包数量" style="-fx-border-color: red; -fx-border-radius: 2px;">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+         </top>
+         <right>
+            <Pane prefHeight="575.0" prefWidth="315.0" style="-fx-background-color: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="netPacketInfo" alignment="TOP_LEFT" layoutX="7.0" layoutY="24.0" prefHeight="551.0" prefWidth="304.0" text="网络包信息" wrapText="true" />
+                  <Label fx:id="statusTitle" alignment="CENTER" prefHeight="24.0" prefWidth="71.0" style="-fx-background-color: linear-gradient(to bottom, #e6e9f0 0%, #eef1f5 100%);" text="网络包信息" />
+               </children>
+            </Pane>
+         </right>
+         <center>
+            <TableView fx:id="packetTable" editable="true" onMouseClicked="#showPacketInfo" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="num" maxWidth="200.0" minWidth="30.0" prefWidth="45.0" text="序号" />
+                <TableColumn fx:id="time" maxWidth="200.0" minWidth="30.0" prefWidth="125.0" text="时间" />
+                <TableColumn fx:id="source" maxWidth="200.0" minWidth="30.0" prefWidth="110.0" text="源IP" />
+                <TableColumn fx:id="destination" maxWidth="200.0" minWidth="30.0" prefWidth="110.0" text="目标IP" />
+                <TableColumn fx:id="protocolcol" maxWidth="200.0" minWidth="30.0" prefWidth="60.0" text="协议" />
+                <TableColumn fx:id="length" maxWidth="200.0" minWidth="30.0" prefWidth="60.0" text="长度" />
+                <TableColumn fx:id="data" maxWidth="3000.0" minWidth="30.0" prefWidth="172.0" text="内容" />
+              </columns>
+            </TableView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

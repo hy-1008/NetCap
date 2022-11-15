@@ -1,0 +1,9 @@
+#run {
+    -fx-background-image: url('../image/start.png');
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:cover;
+}
+#run:pressed {
+    -fx-background-image: url('../image/pause.png');
+}
